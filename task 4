@@ -1,0 +1,39 @@
+1.compare the 2 json wihtout order
+
+var obj1={name:"person 1",age:5};
+var obj2={age:5,name:"person 1"}
+
+console.log(JSON.stringify(obj1)) == console.log(JSON.stringify(obj2));
+2.print all the countries flag.
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+xhr.send();
+
+xhr.responseType = "json";
+
+xhr.onload = function displayResult() {
+    const countries = xhr.response;
+    for (let i in countries){
+    console.log(countries[i].flags);
+        }
+}
+3. print all the countries (name,region,population&subregion).
+
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "https://restcountries.com/v3.1/all");
+xhr.send();
+
+xhr.responseType = "json";
+
+xhr.onload = function displayResult() {
+    const countries = xhr.response;
+    for (let i in countries){
+
+    // console.log(countries);
+    console.log(countries[i].name.common);
+    console.log(countries[i].region);
+    console.log(countries[i].population);
+    console.log(countries[i].subregion);
+    }
+}
